@@ -3,6 +3,8 @@ AWSTemplateFormatVersion: 2010-09-09
 
 
 Parameters:
+  Name:
+    Type: String
   LaunchType:
     Type: String
     Default: Fargate
@@ -36,6 +38,7 @@ Resources:
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
+      Name: !Ref Name
       Subnets: !Ref Subnets
       SecurityGroups:
         - !Ref SecurityGroup
